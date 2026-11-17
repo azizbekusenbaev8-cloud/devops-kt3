@@ -22,7 +22,6 @@ app.use((req, res, next) => {
   });
   next();
 });
-
 app.get('/metrics', async (req, res) => {
   res.set('Content-Type', register.contentType);
   res.end(await register.metrics());
@@ -30,5 +29,4 @@ app.get('/metrics', async (req, res) => {
 
 app.get('/', (req, res) => res.send('DevOps Final Project'));
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
-
-app.listen(3000, () => console.log('Server started on port 3000'));
+module.exports = app;
